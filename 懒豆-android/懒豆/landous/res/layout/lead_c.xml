@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/tuitional_bg"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="325dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="110dp"
+        android:src="@drawable/tuitional_img_3_2"
+        android:visibility="visible" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowDy="1"
+        android:shadowRadius="5"
+        android:text="保证正品低价"
+        android:textColor="#ffffff"
+        android:textSize="28dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowDy="1"
+        android:shadowRadius="5"
+        android:text="货比三家，价比同行，为您精打细算"
+        android:textColor="#ffffff"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/tuitional_carousel_btn" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/tuitional_carousel_btn" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/tuitional_carousel_active_btn" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/tuitional_carousel_btn" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/tuitional_carousel_btn" />
+    </LinearLayout>
+
+</FrameLayout>

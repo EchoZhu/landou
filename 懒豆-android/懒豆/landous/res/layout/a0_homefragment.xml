@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:id="@+id/rl_main"
+    android:layout_height="fill_parent" >
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:visibility="visible"
+        layout="@layout/base_title" />
+
+    <com.zykj.landous.view.MyListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="46dp"
+        android:divider="@null"
+        android:scrollbars="none" >
+    </com.zykj.landous.view.MyListView>
+
+</RelativeLayout>

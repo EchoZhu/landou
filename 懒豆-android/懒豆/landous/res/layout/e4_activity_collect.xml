@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <!-- 标题栏 -->
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:background="#000000" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/dark_green_navi_bar" />
+
+        <ImageView
+            android:id="@+id/collect_top_view_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@drawable/collect_white_left_arrow" />
+
+        <TextView
+            android:id="@+id/top_view_text"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#ffffff"
+            android:textSize="24dp" 
+            android:text="我的收藏"/>
+
+		<TextView
+            android:id="@+id/collect_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right|center_horizontal"
+            android:layout_marginRight="10dp"
+            android:text="编辑"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
+
+   </FrameLayout>
+</LinearLayout>
+    <!-- 内容选择框 -->
+    <fragment
+        android:id="@+id/tabs_fragment"
+        android:name="com.zykj.landous.fragment.E4_CollectTabsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" 
+/>
+    <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/rl_spcar"
+            android:background="@color/color_line_gray"
+             >
+        </FrameLayout>
+</LinearLayout>

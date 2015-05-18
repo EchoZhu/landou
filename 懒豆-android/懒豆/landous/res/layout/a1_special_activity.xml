@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp" >
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:background="#000000" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/titlebg_good" />
+
+            <ImageView
+                android:id="@+id/top_view_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"
+                android:src="@drawable/icon_back" />
+
+            <TextView
+                android:id="@+id/top_view_text"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="#ffffff"
+                android:textSize="24dp" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/special_banner"
+        android:layout_width="fill_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/icon_default_800_400"
+        android:scaleType="fitXY"
+        android:visibility="gone" />
+
+    <com.zykj.landous.view.MyListView
+        android:id="@+id/special_goods_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffff"
+        android:divider="#00000000"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="#00000000" >
+    </com.zykj.landous.view.MyListView>
+
+</LinearLayout>

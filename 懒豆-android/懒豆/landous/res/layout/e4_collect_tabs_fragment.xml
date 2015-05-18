@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#fff"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/ll_tab1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:gravity="center|bottom"
+            android:text="商品" />
+
+        <TextView
+            android:id="@+id/tv_tab1"
+            android:layout_width="fill_parent"
+            android:layout_height="4dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+			android:layout_marginTop="16dp"
+            android:background="@color/color_orange" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_tab2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:gravity="center|bottom"
+            android:text="店铺" />
+
+        <TextView
+            android:id="@+id/tv_tab2"
+            android:layout_width="fill_parent"
+            android:layout_height="4dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/color_orange"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+   
+</LinearLayout>

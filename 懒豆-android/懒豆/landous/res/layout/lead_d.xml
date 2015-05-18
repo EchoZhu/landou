@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/tuitional_bg"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="325dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="110dp"
+        android:src="@drawable/tuitional_img_4_2"
+        android:visibility="gone" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowDy="1"
+        android:shadowRadius="5"
+        android:text="专属同城配送"
+        android:textColor="#ffffff"
+        android:textSize="28dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:shadowColor="#000000"
+        android:shadowDy="1"
+        android:shadowRadius="5"
+        android:text="自建“小蜜蜂”物流，三区货品最快一小时送达"
+        android:textColor="#ffffff"
+        android:textSize="14dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/tuitional_carousel_btn" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/tuitional_carousel_btn" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/tuitional_carousel_btn" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/tuitional_carousel_active_btn" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_margin="4dp"
+            android:src="@drawable/tuitional_carousel_btn" />
+    </LinearLayout>
+
+</FrameLayout>

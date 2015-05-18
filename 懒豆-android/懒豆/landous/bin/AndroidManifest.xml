@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zykj.landous"
+    android:installLocation="auto"
+    android:versionCode="5"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+	<!-- 必选-->
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取网络状态 -->
+	<uses-permission android:name="android.permission.INTERNET" /> <!-- 网络通信-->
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />  <!-- 获取设备信息 -->
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 获取MAC地址-->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读写sdcard，storage等等 -->
+	<!-- 可选-->
+	<uses-permission android:name="android.permission.READ_LOGS" /> <!-- 获取logcat日志 -->
+    
+    
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <!-- Push service 运行需要的权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:name="com.BeeFramework.BeeFrameworkApp"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_app"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:logo="@drawable/icon_app"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="ecmobile.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="4" />
+
+        <activity
+            android:name="com.zykj.landous.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.push.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask" >
+        </activity>
+
+        <!-- 用户微信回调的 activity -->
+        <activity
+            android:name="com.zykj.landous.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity android:name="com.BeeFramework.activity.StartActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 欢迎界面 -->
+        <activity
+            android:name="com.zykj.landous.activity.WelcomeActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 分类列表 -->
+        <activity
+            android:name="com.zykj.landous.activity.ClassifyActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 商品列表 -->
+        <activity
+            android:name="com.zykj.landous.activity.B1_GoodsListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|stateVisible|adjustPan" >
+        </activity>
+        <!-- 个人中心 -->
+        <activity
+            android:name="com.zykj.landous.fragment.E0_ProfileFragment"
+            android:label="@string/title_activity_e0__profile_fragment" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.fragment.D0_ShopingCartFragment"
+            android:label="@string/title_activity_d0__shoping_cart_fragment" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E1_SettingActivity"
+            android:label="@string/title_activity_e1__setting" >
+        </activity>
+        <!-- 商铺展示页面 -->
+        <activity
+            android:name="com.zykj.landous.activity.C1_ShopActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 店铺商品分类 -->
+        <activity android:name="com.zykj.landous.activity.C2_ShopClassActivity" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.B2_ProductdetailsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E2_AddressManageActivity"
+            android:label="@string/title_activity_address_manage" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E3_AddAddressActivity"
+            android:label="@string/title_activity_e3__add_address" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.CollectActivity"
+            android:label="@string/title_activity_collect" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.fragment.E4_CollectTabsFragment"
+            android:label="@string/title_activity_e4__collect_tabs_fragment" >
+        </activity>
+        <!-- 积分商城 -->
+        <activity
+            android:name="com.zykj.landous.activity.E5_CoinStoreActivity"
+            android:label="coin_store" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E6_SigninActivity"
+            android:label="Sign_in_activity" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E7_SignupActivity"
+            android:label="@string/title_activity_e7__signup" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E8_ResetPwdActivity"
+            android:label="reset_pwd_activity" >
+        </activity>
+        <activity
+            android:name="cn.smssdk.SMSSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="cn.smssdk.framework.ShareSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- MyDialog！！！！ -->
+        <activity
+            android:name="com.zykj.landous.activity.MyDialogActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 待付款 -->
+        <activity
+            android:name="com.zykj.landous.activity.E1_NO_PaymentAvtivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 订单确认 -->
+        <activity
+            android:name="com.zykj.landous.activity.D1_OrderConfirmActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E4_ModifyAddressActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 已付款 待发货 -->
+        <activity
+            android:name="com.zykj.landous.activity.E1_PaymentAvtivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 待收货 -->
+        <activity
+            android:name="com.zykj.landous.activity.E1_ShipActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 已收货 -->
+        <activity
+            android:name="com.zykj.landous.activity.E1_EceiptActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E10_CompanyInfoActivity"
+            android:label="@string/title_activity_e10__company_info" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E11_AppInfoActivity"
+            android:label="@string/title_activity_e11__app_info" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E12_CompanyMapActivity"
+            android:label="@string/title_activity_e12__company_map" >
+        </activity>
+        <!-- 确认积分订单 -->
+        <activity
+            android:name="com.zykj.landous.activity.E6_Activity_PointsOrder"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 查询积分订单 -->
+        <activity
+            android:name="com.zykj.landous.activity.E6_Activity_getPointsOrder"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.A1_SpecialActivity"
+            android:label="@string/title_activity_a1__special" >
+        </activity>
+        <!-- 查询积分变更列表 -->
+        <activity
+            android:name="com.zykj.landous.activity.E1_Activity_getPointsLog"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="54a75b37fd98c540cd001139" />
+
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 100424468，如果你使用的公用账号，则不需要修改；否则修改成你在QQ开放平台申请的 APP ID -->
+                <data android:scheme="tencent1104090547" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <!-- 订单评价 -->
+        <activity
+            android:name="com.zykj.landous.activity.E2_Activity_orderEvaluation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 退货列表 -->
+        <activity
+            android:name="com.zykj.landous.activity.E2_Activity_Returns"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 退款详情 -->
+        <activity
+            android:name="com.zykj.landous.activity.E3_Activity_Returns"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.E13_User_policy_Activity"
+            android:label="@string/title_activity_e13__user_policy_" >
+        </activity>
+        <!-- 付款成功或失败状态 -->
+        <activity
+            android:name="com.zykj.landous.activity.Activity_Success"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.zykj.landous.activity.A2_SearchActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustPan" >
+        </activity>
+
+        <service android:name="com.BeeFramework.service.MemoryService" >
+            <intent-filter android:priority="1000" >
+                <action android:name="com.BeeFramework.MemoryService" />
+            </intent-filter>
+        </service>
+        <service android:name="com.BeeFramework.service.NetworkStateService" >
+            <intent-filter android:priority="1000" >
+                <action android:name="com.BeeFramework.NetworkState.Service" /> <!-- 在BeeFrameworkApp中启动，action的name自定义，但与启动service的action的name一致 -->
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.BeeFramework.activity.DebugTabActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.BeeFramework.activity.ActivityLifeCycleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.BeeFramework.activity.DebugMessageListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.BeeFramework.activity.DebugDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.BeeFramework.activity.MemoryMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.BeeFramework.activity.FloatViewSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.BeeFramework.activity.CrashLogActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.BeeFramework.activity.CrashLogDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.activity.TrendActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.BeeFramework.activity.DebugCancelDialogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/dialog" />
+        
+       
+    </application>
+
+</manifest>

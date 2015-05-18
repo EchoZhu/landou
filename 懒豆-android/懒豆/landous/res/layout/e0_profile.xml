@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp" >
+
+	<View
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:background="#000000" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/c1_title_shopbg" />
+    <ImageView
+            android:id="@+id/profile_check"
+            android:layout_width="55dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:padding="4dp"
+            android:src="@drawable/profile_check" />
+        
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/profile_personal"
+            android:textColor="#fff"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/profile_setting"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="10dp"
+            
+            android:padding="1dp"
+            android:src="@drawable/profile_setting_buttonbai" />
+
+        <!-- <View android:background="@drawable/filter_blue_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:background="#000000" /> -->
+
+    </FrameLayout>
+
+    <!-- <com.external.maxwin.view.XListView
+        android:id="@+id/profile_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#00000000"
+        android:divider="#00000000"
+        android:fadingEdge="none"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:scrollbars="none" >
+    </com.external.maxwin.view.XListView> -->
+	<ListView
+	    android:id="@+id/profile_list"
+	    android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#00000000"
+        android:divider="#00000000"
+        android:fadingEdge="none"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:scrollbars="none" />
+	    
+</LinearLayout>

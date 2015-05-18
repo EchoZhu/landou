@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="5dip"
+	    android:layout_marginBottom="5dip">
+	    <LinearLayout 
+	        android:layout_width="0.0dp"
+	        android:layout_height="fill_parent"
+	        android:gravity="center"
+	        android:layout_weight="1">
+	        <ImageView 
+	            android:layout_width="20dip"
+	            android:layout_height="20dip"
+	            android:src="@drawable/zhengpin"/>
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="5dip"
+	            android:textColor="#000"
+	            android:textSize="10dip"
+	            android:text="正品货源"/>
+	    </LinearLayout>
+	    <LinearLayout 
+	        android:layout_width="0.0dp"
+	        android:layout_height="fill_parent"
+	        android:gravity="center"
+	        android:layout_weight="1">
+	        <ImageView 
+	            android:layout_width="20dip"
+	            android:layout_height="20dip"
+	            android:src="@drawable/xmfps"/>
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="5dip"
+	            android:textColor="#000"
+	            android:textSize="10dip"
+	            android:text="小蜜蜂配送"/>
+	    </LinearLayout>
+	    <LinearLayout 
+	        android:layout_width="0.0dp"
+	        android:layout_height="fill_parent"
+	        android:gravity="center"
+	        android:layout_weight="1">
+	        <ImageView 
+	            android:layout_width="20dip"
+	            android:layout_height="20dip"
+	            android:src="@drawable/djsh"/>
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="5dip"
+	            android:textColor="#000"
+	            android:textSize="10dip"
+	            android:text="低价实惠"/>
+	    </LinearLayout>
+	    <LinearLayout 
+	        android:layout_width="0.0dp"
+	        android:layout_height="fill_parent"
+	        android:gravity="center"
+	        android:layout_weight="1">
+	        <ImageView 
+	            android:layout_width="20dip"
+	            android:layout_height="20dip"
+	            android:src="@drawable/hdfk"/>
+	        <TextView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="5dip"
+	            android:textColor="#000"
+	            android:textSize="10dip"
+	            android:text="货到付款"/>
+	    </LinearLayout>
+	</LinearLayout>
+    <com.zykj.landous.view.SlideShowView
+        android:id="@+id/slideshowView"
+        android:layout_width="fill_parent"
+        android:layout_height="140dp"
+        android:layout_below="@+id/inc_title"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="10dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="2dp"
+        android:background="#fff" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_leisurefood"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/icon_leisurefood" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="fill_parent"
+                android:layout_height="14dp" />
+
+            <ImageView
+                android:id="@+id/iv_homecleaners"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/icon_homecleaners" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_personalcare"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/icon_personalcare" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="14dp" />
+
+            <ImageView
+                android:id="@+id/iv_supplies"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/icon_supplies" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_beverages"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/icon_beverages" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="14dp" />
+
+            <ImageView
+                android:id="@+id/iv_appliance"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/icon_appliance" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_condiment"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/icon_condiment" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="14dp" />
+
+            <ImageView
+                android:id="@+id/iv_officegifts"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/icon_officegifts" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="15dp"
+        android:background="#fcfcfc" />
+    <!--
+         <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/gray_lines" />
+    -->
+
+</LinearLayout>
