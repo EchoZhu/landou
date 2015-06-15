@@ -40,6 +40,7 @@ public class MainActivity extends FragmentActivity {
 		super.onResume();
 	}
 
+
 	// 退出操作
 	private boolean isExit = false;
 
@@ -70,7 +71,6 @@ public class MainActivity extends FragmentActivity {
 		}
 		return true;
 	}
-
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);

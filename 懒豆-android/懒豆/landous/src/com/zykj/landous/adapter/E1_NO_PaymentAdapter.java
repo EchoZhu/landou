@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.BeeFramework.BeeFrameworkApp;
+import com.BeeFramework.activity.StartActivity;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.landous.R;
@@ -33,6 +34,7 @@ import com.zykj.landous.Data.BaseData;
 import com.zykj.landous.Tools.HttpUtils;
 import com.zykj.landous.Tools.MathTools;
 import com.zykj.landous.activity.B2_ProductdetailsActivity;
+import com.zykj.landous.activity.E1_Pay_select_page;
 import com.zykj.landous.activity.MyDialogActivity;
 import com.zykj.landous.adapter.E5_CoinGoodsAdapter.ViewHolder;
 import com.zykj.landous.alipay.Fiap;
@@ -122,11 +124,12 @@ public class E1_NO_PaymentAdapter extends BaseAdapter {
 				.get("shipping_fee").toString());
 		double discount = Double.valueOf(data.get(position).get("discount")
 				.toString());
-		double money = goods_amount + shipping_fee;
-		double actually_money = money > BaseData.min_total_price ? money
-				- discount : money;
-		Log.i("E1", "" + goods_amount + "ssss" + shipping_fee + "dddd"
-				+ discount);
+//		double money = goods_amount + shipping_fee;
+//		double actually_money = money > BaseData.min_total_price ? money
+//				- discount : money;
+		double actually_money = goods_amount > BaseData.min_total_price ? goods_amount : goods_amount+BaseData.d_postage;
+//		Log.i("E1", "" + goods_amount + "ssss" + shipping_fee + "dddd"
+//				+ discount);
 		holder.tv_all_price.setText("合计:￥"
 				+ MathTools.DoubleKeepTwo(actually_money));
 		ll_gone = (LinearLayout) view.findViewById(R.id.ll_gone);
@@ -144,10 +147,16 @@ public class E1_NO_PaymentAdapter extends BaseAdapter {
 			ll_gone.setVisibility(View.VISIBLE);
 			holder.ll_shop_name.setVisibility(View.GONE);
 		}
-		String str_postage = data.get(position).get("shipping_fee").toString()
-				.equals("0.0") ? "免邮" : "邮费:￥"
-				+ data.get(position).get("shipping_fee").toString();
-		holder.tv_postage.setText(str_postage);
+		/**
+		 * 由于邮费data.get(position).get("shipping_fee")从服务器获取，有些商品的邮费值是错的，但是data.get(position)
+				.get("goods_amount").toString()获取到的商品的价格是对的，因此用goods_amount是否大于BaseData.min_total_price来判断是否需要增加邮费
+		 */
+//		String str_postage = data.get(position).get("shipping_fee").toString()
+//				.equals("0.0") ? "免邮" : "邮费:￥"
+//				+ data.get(position).get("shipping_fee").toString();
+		String str_postage = goods_amount>BaseData.min_total_price ? "免邮" : "邮费:￥"+ 5;
+		
+		holder.tv_postage.setText(str_postage);//邮费：￥ 元
 
 		holder.tv_all_num.setText("共有" + data.get(position).get("all_num")
 				+ "件商品");
@@ -194,7 +203,7 @@ public class E1_NO_PaymentAdapter extends BaseAdapter {
 
 			}
 		});
-
+        //点击去付款
 		holder.iv_topay.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -204,14 +213,28 @@ public class E1_NO_PaymentAdapter extends BaseAdapter {
 				double shipping_fee = Double.valueOf(data.get(position)
 						.get("shipping_fee").toString());
 				String pay_sn = data.get(position).get("pay_sn").toString();
-				Fiap fiap = new Fiap(context);
-				fiap.setOrder_id(pay_sn);
 				double money = goods_amount + shipping_fee;
-				double actually_money = money > BaseData.min_total_price ? money
-						- BaseData.online_pay_discount
-						: money;
-				fiap.android_pay(actually_money);
-				Log.i("landousjson", goods_amount + "价格" + pay_sn);
+//				double actually_money = money > BaseData.min_total_price ? money
+//						- BaseData.online_pay_discount
+//						: money;
+				double actually_money = goods_amount > BaseData.min_total_price ? goods_amount: goods_amount+BaseData.d_postage;
+				
+				Intent intent = new Intent();
+				intent.setClass(context, E1_Pay_select_page.class);
+				
+				intent.putExtra("pay_sn", pay_sn);
+				intent.putExtra("actually_money",actually_money);
+				
+				context.startActivity(intent);
+				
+//				Fiap fiap = new Fiap(context);
+//				fiap.setOrder_id(pay_sn);
+//				double money = goods_amount + shipping_fee;
+//				double actually_money = money > BaseData.min_total_price ? money
+//						- BaseData.online_pay_discount
+//						: money;
+//				fiap.android_pay(actually_money);
+//				Log.i("landousjson", goods_amount + "价格" + pay_sn);
 			}
 		});
 		holder.iv_goods_image.setOnClickListener(new View.OnClickListener() {
@@ -228,6 +251,7 @@ public class E1_NO_PaymentAdapter extends BaseAdapter {
 		});
 		return view;
 	}
+
 
 	/** 存放控件 */
 	public final class ViewHolder {

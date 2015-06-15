@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.BeeFramework.activity.BaseActivity;
 import com.zykj.landous.MainActivity;
 import com.zykj.landous.R;
+import com.zykj.landous.Data.BaseData;
 import com.zykj.landous.fragment.MainTabsFrament;
 
 
@@ -35,13 +36,16 @@ public class Activity_Success extends BaseActivity implements OnClickListener {
 		String type = it.getStringExtra("type");
 		if (type.equals("success")) {
 			message.setText("支付成功");
+			BaseData.NotSuccess=0;
 		} else if (type.equals("6001")) {
-			ProgressDialog p = new ProgressDialog(this);
-			p.setMessage("sdfsdfsdf");
-			p.show();
-			p.dismiss();
+//			ProgressDialog p = new ProgressDialog(this);
+//			p.setMessage("sdfsdfsdf");
+//			p.show();
+//			p.dismiss();
 			message.setText("用户取消支付");
+			BaseData.NotSuccess=1;
 		}
+		
 
 	}
 
@@ -50,10 +54,10 @@ public class Activity_Success extends BaseActivity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.iv_back:
-			Intent it = new Intent(Activity_Success.this, MainActivity.class);
-			MainTabsFrament.type = "tab_one";
-			it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(it);
+//			Intent it = new Intent(Activity_Success.this, MainActivity.class);
+//			MainTabsFrament.type = "tab_one";
+//			it.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//			startActivity(it);
 			this.finish();
 
 			break;

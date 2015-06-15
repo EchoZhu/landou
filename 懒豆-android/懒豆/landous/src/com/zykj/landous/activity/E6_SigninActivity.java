@@ -255,7 +255,7 @@ public class E6_SigninActivity extends Activity implements OnClickListener,
 				loadingPDialog.dismiss();
 				AlertDialog.Builder builder = new Builder(
 						E6_SigninActivity.this);
-						builder.setTitle("用户名或密码错误");
+						builder.setTitle("用户未注册或密码错误");
 
 						
 

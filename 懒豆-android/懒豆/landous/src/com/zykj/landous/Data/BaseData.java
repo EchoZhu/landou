@@ -9,11 +9,15 @@ public class BaseData {
 	/**
 	 * 在线减免额度
 	 */
-	public static double online_pay_discount = 0.00;
+	public static float online_pay_discount = 5.00f;
 	/**
-	 * 大于xx金额后开始减免
+	 * 大于29元后开始减免
 	 */
-	public static double min_total_price = 0.00;
-	public static double d_postage = 5.00;
+	public static float min_total_price = 29.0f;
+	/**
+	 * 邮费：5元
+	 */
+	public static float d_postage = 5.00f;
 
+	public static int NotSuccess=0;
 }

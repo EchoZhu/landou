@@ -76,6 +76,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/icon_homecleaners" />
+                    <!-- <ImageView
+                        android:id="@+id/iv_xiuxianlingshi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/xiuxianlingshi" /> -->
                 </LinearLayout>
 
                 <LinearLayout
@@ -101,6 +107,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/icon_supplies" />
+                   <!--  <ImageView
+                        android:id="@+id/iv_liangyoutiaowei"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/liangyoutiaowei" /> -->
                 </LinearLayout>
 
                 <LinearLayout
@@ -126,6 +138,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/icon_appliance" />
+                    <!-- <ImageView
+                        android:id="@+id/iv_gehuxihua"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/gehuxihua" /> -->
                 </LinearLayout>
 
                 <LinearLayout
@@ -151,6 +169,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/icon_officegifts" />
+                   <!--  <ImageView
+                        android:id="@+id/iv_jiajuwenti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/jiajuwenti" /> -->
                 </LinearLayout>
             </LinearLayout>
 

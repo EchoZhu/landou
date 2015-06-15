@@ -1,10 +1,8 @@
 package com.zykj.landous.activity;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.http.Header;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 

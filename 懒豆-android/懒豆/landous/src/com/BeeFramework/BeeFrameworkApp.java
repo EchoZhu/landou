@@ -313,10 +313,12 @@ public class BeeFrameworkApp extends Application implements OnClickListener {
 					JSONArray array = response.getJSONArray("list");
 					for (int i = 0; i < array.length(); i++) {
 						JSONObject jsonItem = array.getJSONObject(i);
-						BaseData.min_total_price = jsonItem
-								.getDouble("min_total_price");
-						BaseData.online_pay_discount = jsonItem
-								.getDouble("online_pay_discount");
+						
+						//忘不了！！！！
+//						BaseData.min_total_price = jsonItem
+//								.getDouble("min_total_price");
+//						BaseData.online_pay_discount = jsonItem
+//								.getDouble("online_pay_discount");
 					}
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block

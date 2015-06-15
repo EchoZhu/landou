@@ -34,6 +34,7 @@ import com.external.maxwin.view.XListView.IXListViewListener;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.zykj.landous.LandousAppConst;
 import com.zykj.landous.R;
+import com.zykj.landous.Data.BaseData;
 import com.zykj.landous.Tools.HttpUtils;
 import com.zykj.landous.Tools.MathTools;
 import com.zykj.landous.activity.D1_OrderConfirmActivity;
@@ -44,7 +45,7 @@ import com.zykj.landous.adapter.D0_shoping_car_adapter;
 import com.zykj.landous.view.MyListView;
 
 public class D0_ShopingCartFragment extends Fragment implements
-		IXListViewListener, OnClickListener, onCheckedChanged {
+	IXListViewListener, OnClickListener, onCheckedChanged {
 	public static FrameLayout shop_car_null;
 	public static FrameLayout shop_car_data;
 	private View view;
@@ -80,6 +81,10 @@ public class D0_ShopingCartFragment extends Fragment implements
 	@Override
 	public void onResume() {
 
+//		if (BaseData.NotSuccess==1) {
+//			all_price=0;
+//		}
+//		
 		loadingPDialog.show();
 		HttpUtils.getCartList(res, "");
 		editor.clear();
@@ -148,6 +153,7 @@ public class D0_ShopingCartFragment extends Fragment implements
 		btn_del = (Button) view.findViewById(R.id.btn_del);
 		btn_del.setOnClickListener(this);
 		cb_cart_all = (CheckBox) view.findViewById(R.id.cb_cart_all);
+		
 		cb_cart_all.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 			@Override
@@ -165,6 +171,7 @@ public class D0_ShopingCartFragment extends Fragment implements
 								.get("cart_id").toString());
 					}
 					if (D0_New_Shoping_Car_adapter.dataList.size() != 0) {
+						//设置总金额的地方
 						all_price_ = Double
 								.valueOf(D0_New_Shoping_Car_adapter.dataList
 										.get(D0_New_Shoping_Car_adapter.dataList
@@ -181,6 +188,9 @@ public class D0_ShopingCartFragment extends Fragment implements
 
 			}
 		});
+//		cb_cart_all.setChecked(false);
+//		cb_cart_all.setChecked(true);
+		
 		rl_cart_all.setOnClickListener(this);
 		if (isLogin()) {
 			loadingPDialog.show();
@@ -298,6 +308,7 @@ public class D0_ShopingCartFragment extends Fragment implements
 							carmap.put("price_shop",
 									jsonItem.getString("purchase_price"));
 							cart_list_data.add(carmap);
+							
 						}
 						data.add(map);
 					}
@@ -414,6 +425,10 @@ public class D0_ShopingCartFragment extends Fragment implements
 	public void getChoiceData(double goods_price, boolean isChoice,
 			String car_id) {
 		int num = 0;
+		if (BaseData.NotSuccess==1) {
+			all_price=0;
+			BaseData.NotSuccess=0;
+		}
 		for (int j = 0; j < D0_New_Shoping_Car_adapter.b_goods.length; j++) {
 			if (D0_New_Shoping_Car_adapter.b_goods[j]) {
 				num++;

@@ -42,6 +42,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.zykj.landous.LandousAppConst;
 import com.zykj.landous.R;
+import com.zykj.landous.Data.BaseData;
 import com.zykj.landous.Tools.HttpUtils;
 import com.zykj.landous.activity.B2_ProductdetailsActivity;
 import com.zykj.landous.activity.C1_ShopActivity;
@@ -146,7 +147,11 @@ public class B2_0_PriductdetailsFragment extends Fragment implements
 	private TextView tv_goods_storage;
 	public static int goods_storage = 0;
 	private static int num = 0;
-
+	/**
+	 * 满减金额
+	 */
+	 TextView  min_total_price;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -157,7 +162,6 @@ public class B2_0_PriductdetailsFragment extends Fragment implements
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.b2_0_productedtails, null);
-
 		init(view);
 		return view;
 	}
@@ -188,6 +192,7 @@ public class B2_0_PriductdetailsFragment extends Fragment implements
 		tv_goshop = (TextView) view.findViewById(R.id.tv_goshop);
 		tv_goshop.setOnClickListener(this);
 		tv_goods_storage = (TextView) view.findViewById(R.id.tv_goods_storage);
+		min_total_price=(TextView) view.findViewById(R.id.min_total_price);
 		// 从布局文件中获取ViewPager父容器
 		pagerLayout = (LinearLayout) view.findViewById(R.id.view_pager_content);
 		// 创建ViewPager
@@ -399,6 +404,8 @@ public class B2_0_PriductdetailsFragment extends Fragment implements
 				scrollView.fullScroll(ScrollView.FOCUS_UP);
 				try {
 					JSONObject json = (JSONObject) response.get("data");
+//					Toast.makeText(getActivity(), json+"", Toast.LENGTH_LONG).show();
+//					Log.e("tagtag", json+"");
 					goods_storage = json.getInt("goods_storage");
 					tv_goods_storage.setText("库存:" + goods_storage);
 					tv_productname.setText(Html.fromHtml("<div>"
@@ -410,6 +417,8 @@ public class B2_0_PriductdetailsFragment extends Fragment implements
 					tv_goods_click.setText(json.getString("goods_click")
 							+ "人浏览");
 					tv_salenum.setText("已售：" + json.getString("goods_salenum"));
+//					min_total_price.setText("满"+BaseData.min_total_price+"元包邮");
+//					min_total_price.setText("满"+json.getString("store_free_price")+"元包邮");
 					rl_shopid.setTag(json.getString("store_id"));
 					imgArr = json.getJSONArray("images");
 					initPageAdapter();

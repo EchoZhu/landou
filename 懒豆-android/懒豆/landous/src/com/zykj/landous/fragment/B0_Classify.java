@@ -61,7 +61,7 @@ public class B0_Classify extends Fragment implements OnClickListener {
 	private LinearLayout ll_right;
 	String parent_id_middle = "";
 	String parent_id_right = "";
-
+    String gc_id[] =new String[]{"3025","3028","3029","3030","3031","3032","3033","3034","3035","3036","3037"};
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -189,7 +189,7 @@ public class B0_Classify extends Fragment implements OnClickListener {
 		public void onSuccess(int statusCode, Header[] headers,
 				JSONObject response) {
 			super.onSuccess(statusCode, headers, response);
-
+            Log.e("res_getGoodsClass_response", response+"");
 			int result = 0;
 
 			try {
@@ -205,12 +205,22 @@ public class B0_Classify extends Fragment implements OnClickListener {
 				try {
 					data.clear();
 					JSONArray array = response.getJSONArray("list");
-					for (int i = 0; i < array.length(); i++) {
+					for (int i = 0; i < array.length(); i++) 
+//						for (int i = 0; i < 8; i++) 
+					{
 						JSONObject jsonItem = array.getJSONObject(i);
 						Map<String, String> map = new HashMap();
-						map.put("gc_name", jsonItem.getString("gc_name"));
-						map.put("gc_id", jsonItem.getString("gc_id"));
-						data.add(map);
+						//*******
+						for (int k = 0; k < gc_id.length; k++) {
+							
+							if (jsonItem.getString("gc_id").equals(gc_id[k])) //如果某一条的商品信息中的gc_id等于goos_id中的某一个数
+							{
+								map.put("gc_name", jsonItem.getString("gc_name"));
+								map.put("gc_id", jsonItem.getString("gc_id"));
+								data.add(map);
+							}
+						}
+						//*******
 					}
 					Log.i("landousjson", data.toString());
 					// if (ON_LISTVIEW == 0) {

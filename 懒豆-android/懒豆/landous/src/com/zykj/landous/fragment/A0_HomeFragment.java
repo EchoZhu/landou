@@ -81,39 +81,72 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 	private View headView;
 	List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 	List<Map<String, String>> goods_data = new ArrayList<Map<String, String>>();
+	String goods_id[] = new String[]{"3025","3028","3029","3031","3032","3035","3036","3037"};//通过gc_id来筛选需要显示在首页的物品
 	ImgAdapter adapter;
 	/**
-	 * 休闲食品
+	 * 生鲜饮品1
 	 */
-	private ImageView iv_leisurefood;
+	private ImageView iv_shengxianyinpin;
 	/**
-	 * 家庭清洁
+	 * 休闲零食2
 	 */
-	private ImageView iv_homecleaners;
+	private ImageView iv_xiuxianlingshi;
 	/**
-	 * 个人洗护
+	 * 烟酒礼品3
 	 */
-	private ImageView iv_personalcare;
+	private ImageView iv_yanjiulipin;
 	/**
-	 * 生活用品
+	 * 粮油调味4
 	 */
-	private ImageView iv_supplies;
+	private ImageView iv_liangyoutiaowei;
 	/**
-	 * 酒水饮料
+	 * 母婴生活5
 	 */
-	private ImageView iv_beverages;
+	private ImageView iv_muyingshenghuo;
 	/**
-	 * 家用电器
+	 * 个护洗化6
 	 */
-	private ImageView iv_appliance;
+	private ImageView iv_gehuxihua;
 	/**
-	 * 粮油调味
+	 * 生活日用7
 	 */
-	private ImageView iv_condiment;
+	private ImageView iv_riyongtuza;
 	/**
-	 * 办公礼品
+	 * 家具文体
 	 */
-	private ImageView iv_officegifts;
+	private ImageView iv_jiajuwenti;
+//	/**
+//	 * 休闲食品
+//	 */
+//	private ImageView iv_leisurefood;
+//	/**
+//	 * 家庭清洁
+//	 */
+//	private ImageView iv_homecleaners;
+//	/**
+//	 * 个人洗护
+//	 */
+//	private ImageView iv_personalcare;
+//	/**
+//	 * 生活用品
+//	 */
+//	private ImageView iv_supplies;
+//	/**
+//	 * 酒水饮料
+//	 */
+//	private ImageView iv_beverages;
+//	/**
+//	 * 家用电器
+//	 */
+//	private ImageView iv_appliance;
+//	/**
+//	 * 粮油调味
+//	 */
+//	private ImageView iv_condiment;
+//	/**
+//	 * 办公礼品
+//	 */
+//	private ImageView iv_officegifts;
 	private ImageView imgs[] = new ImageView[8];
 	A0_GoodsAdapter goodsAdapter;
 	private ProgressDialog loadingPDialog = null;
@@ -143,37 +176,51 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 		goodsAdapter = new A0_GoodsAdapter(getActivity(), goods_data);
 		listview.setAdapter(goodsAdapter);
 		listview.addHeaderView(headView);
-		slideShowView = (SlideShowView) headView
-				.findViewById(R.id.slideshowView);
+		slideShowView = (SlideShowView) headView.findViewById(R.id.slideshowView);
 		LayoutParams lp = slideShowView.getLayoutParams();
 		DisplayMetrics metric = new DisplayMetrics();
 		getActivity().getWindowManager().getDefaultDisplay().getMetrics(metric);
 		int width = metric.widthPixels; // 屏幕宽度（像素）
 		lp.height = width/5*2;
 		slideShowView.setLayoutParams(lp);
-		
-		
-		iv_leisurefood = (ImageView) headView.findViewById(R.id.iv_leisurefood);
-		iv_leisurefood.setOnClickListener(this);
-		iv_homecleaners = (ImageView) headView
-				.findViewById(R.id.iv_homecleaners);
-		iv_homecleaners.setOnClickListener(this);
-		iv_personalcare = (ImageView) headView
-				.findViewById(R.id.iv_personalcare);
-		iv_personalcare.setOnClickListener(this);
-		iv_supplies = (ImageView) headView.findViewById(R.id.iv_supplies);
-		iv_supplies.setOnClickListener(this);
-		iv_beverages = (ImageView) headView.findViewById(R.id.iv_beverages);
-		iv_beverages.setOnClickListener(this);
-		iv_appliance = (ImageView) headView.findViewById(R.id.iv_appliance);
-		iv_appliance.setOnClickListener(this);
-		iv_condiment = (ImageView) headView.findViewById(R.id.iv_condiment);
-		iv_condiment.setOnClickListener(this);
-		iv_officegifts = (ImageView) headView.findViewById(R.id.iv_officegifts);
-		iv_officegifts.setOnClickListener(this);
-		imgs = new ImageView[] { iv_leisurefood, iv_personalcare, iv_beverages,
-				iv_condiment, iv_homecleaners, iv_supplies, iv_appliance,
-				iv_officegifts };
+//		iv_leisurefood = (ImageView) headView.findViewById(R.id.iv_leisurefood);
+//		iv_leisurefood.setOnClickListener(this);
+		iv_shengxianyinpin = (ImageView) headView.findViewById(R.id.iv_shengxianyinpin);
+		iv_shengxianyinpin.setOnClickListener(this);
+//		iv_homecleaners = (ImageView) headView.findViewById(R.id.iv_homecleaners);
+//		iv_homecleaners.setOnClickListener(this);
+		iv_xiuxianlingshi = (ImageView) headView.findViewById(R.id.iv_xiuxianlingshi);
+		iv_xiuxianlingshi.setOnClickListener(this);
+//		iv_personalcare = (ImageView) headView.findViewById(R.id.iv_personalcare);
+//		iv_personalcare.setOnClickListener(this);
+		iv_yanjiulipin = (ImageView) headView.findViewById(R.id.iv_yanjiulipin);
+		iv_yanjiulipin.setOnClickListener(this);
+//		iv_supplies = (ImageView) headView.findViewById(R.id.iv_supplies);
+//		iv_supplies.setOnClickListener(this);
+		iv_liangyoutiaowei = (ImageView) headView.findViewById(R.id.iv_liangyoutiaowei);
+		iv_liangyoutiaowei.setOnClickListener(this);
+//		iv_beverages = (ImageView) headView.findViewById(R.id.iv_beverages);
+//		iv_beverages.setOnClickListener(this);
+		iv_muyingshenghuo = (ImageView) headView.findViewById(R.id.iv_muyingshenghuo);
+		iv_muyingshenghuo.setOnClickListener(this);
+//		iv_appliance = (ImageView) headView.findViewById(R.id.iv_appliance);
+//		iv_appliance.setOnClickListener(this);
+		iv_gehuxihua = (ImageView) headView.findViewById(R.id.iv_gehuxihua);
+		iv_gehuxihua.setOnClickListener(this);
+//		iv_condiment = (ImageView) headView.findViewById(R.id.iv_condiment);
+//		iv_condiment.setOnClickListener(this);
+		iv_riyongtuza = (ImageView) headView.findViewById(R.id.iv_riyongtuza);
+		iv_riyongtuza.setOnClickListener(this);
+//		iv_officegifts = (ImageView) headView.findViewById(R.id.iv_officegifts);
+//		iv_officegifts.setOnClickListener(this);
+		iv_jiajuwenti = (ImageView) headView.findViewById(R.id.iv_jiajuwenti);
+		iv_jiajuwenti.setOnClickListener(this);
+//		imgs = new ImageView[] { iv_leisurefood, iv_personalcare, iv_beverages,
+//				iv_condiment, iv_homecleaners, iv_supplies, iv_appliance,
+//				iv_officegifts };
+		imgs = new ImageView[] { iv_shengxianyinpin, iv_yanjiulipin, iv_muyingshenghuo,
+				iv_riyongtuza, iv_xiuxianlingshi, iv_liangyoutiaowei, iv_gehuxihua,
+				iv_jiajuwenti };
 		if (goods_data.size() != 0) {
 			for (int i = 0; i < goods_data.size(); i++) {
 				imgs[i].setTag(goods_data.get(i).get("gc_id").toString());
@@ -232,49 +279,66 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.iv_leisurefood:
+//		String goods_id[] = new String[]{"3025","3028","3029","3031","3032","3035","3036","3037"};//通过gc_id来筛选需要显示在
+		case R.id.iv_shengxianyinpin://(休闲食品)   生鲜饮品 1
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-			it.putExtra("gc_id", "1");
+//			it.putExtra("gc_id", "1");
+//			it.putExtra("gc_id", "2669");
+			it.putExtra("gc_id", "3025");
 			startActivity(it);
 
 			break;
-		case R.id.iv_homecleaners:
+		case R.id.iv_xiuxianlingshi:// (家庭清洁)   休闲零食2
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-			it.putExtra("gc_id", "308");
+//			it.putExtra("gc_id", "308");
+//			it.putExtra("gc_id", "2880");
+			it.putExtra("gc_id", "3032");
 			startActivity(it);
 
 			break;
-		case R.id.iv_personalcare:
+		case R.id.iv_yanjiulipin://(个人洗护) 烟酒礼品3
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-			it.putExtra("gc_id", "2");
+//			it.putExtra("gc_id", "2");
+//			it.putExtra("gc_id", "2745");
+			it.putExtra("gc_id", "3035");
 			startActivity(it);
 
 			break;
-		case R.id.iv_supplies:
+		case R.id.iv_liangyoutiaowei://(生活日用)  粮油调味4
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-			it.putExtra("gc_id", "470");
+//			it.putExtra("gc_id", "470");
+//			it.putExtra("gc_id", "2940");
+			it.putExtra("gc_id", "3036");
 			startActivity(it);
 
 			break;
-		case R.id.iv_beverages:
+		case R.id.iv_muyingshenghuo://(酒水饮料) 母婴生活5
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-			it.putExtra("gc_id", "3");
+//			it.putExtra("gc_id", "3");
+//			it.putExtra("gc_id", "2810");
+			it.putExtra("gc_id", "3037");
 			startActivity(it);
 
 			break;
-		case R.id.iv_appliance:
+		case R.id.iv_gehuxihua://(家用电器) 个护洗化6
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-			it.putExtra("gc_id", "530");
+//			it.putExtra("gc_id", "530");
+//			it.putExtra("gc_id", "2968");
+			it.putExtra("gc_id", "3028");
 			startActivity(it);
 			break;
-		case R.id.iv_condiment:
+		case R.id.iv_riyongtuza://(粮油调味) 日用土杂7
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-			it.putExtra("gc_id", "256");
+//			it.putExtra("gc_id", "256");
+//			it.putExtra("gc_id", "3036");
+			it.putExtra("gc_id", "3029");
 			startActivity(it);
 			break;
-		case R.id.iv_officegifts:
+		case R.id.iv_jiajuwenti://(办公礼品) 家具文体8
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-			it.putExtra("gc_id", "593");
+//			it.putExtra("gc_id", "593");
+//			it.putExtra("gc_id", "3005");
+			it.putExtra("gc_id", "3031");
 			startActivity(it);
 			break;
 		case R.id.ll_share:
@@ -368,7 +432,7 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 		public void onSuccess(int statusCode, Header[] headers,
 				JSONObject response) {
 			super.onSuccess(statusCode, headers, response);
-
+//			Log.e("res_getHomeGoods_response=", response+"");
 			int result = 0;
 
 			try {
@@ -384,17 +448,26 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 				goods_data.clear();
 				try {
 					JSONArray array = response.getJSONArray("list");
-					for (int i = 0; i < array.length(); i++) {
-						JSONObject jsonItem = array.getJSONObject(i);
+//					Log.e("arrayarrayarrayarray", array+"");
+					for (int i = 0; i < array.length(); i++) 
+					{
 						Map<String, String> map = new HashMap();
-						map.put("gc_name", jsonItem.getString("gc_name"));
-						map.put("goods",
-								array.getJSONObject(i).getString("goods"));
-						imgs[i].setTag(array.getJSONObject(i)
-								.getString("gc_id"));
-						map.put("gc_id", jsonItem.getString("gc_id"));
-						goods_data.add(map);
+						JSONObject jsonItem = array.getJSONObject(i);
+						for (int j = 0; j < goods_id.length; j++) {
+							Log.e("jsonItem1_"+j, jsonItem.getString("gc_id")+"="+goods_id[j]);
+							if (jsonItem.getString("gc_id").equals(goods_id[j])) //如果某一条的商品信息中的gc_id等于goos_id中的某一个数
+							{
+								map.put("gc_name", jsonItem.getString("gc_name"));
+								map.put("goods",jsonItem.getString("goods"));
+								imgs[j].setTag(jsonItem.getString("gc_id"));
+								map.put("gc_id", jsonItem.getString("gc_id"));
+								Log.e("jsonItem_"+j, jsonItem+"");
+								goods_data.add(map);
+							}
+						}
 					}
+					Log.e("goods_data=", goods_data+"");
+					
 					headView.setVisibility(View.VISIBLE);
 					goodsAdapter.notifyDataSetChanged();
 					listview.setBackgroundColor(Color.WHITE);

@@ -125,10 +125,8 @@ public class A0_GoodsAdapter extends BaseAdapter {
 
 			holder.ll_good3.setOnClickListener(new Mylistener(position));
 
-			holder.tv_title_foods.setText(data.get(position).get("gc_name")
-					+ "");
-			ll_goods = new LinearLayout[] { holder.ll_good1, holder.ll_good2,
-					holder.ll_good3 };
+			holder.tv_title_foods.setText(data.get(position).get("gc_name")+"");
+			ll_goods = new LinearLayout[] { holder.ll_good1, holder.ll_good2,holder.ll_good3 };
 			try {
 				JSONObject jo = new JSONObject(data.get(position).toString());
 				JSONArray array = jo.getJSONArray("goods");

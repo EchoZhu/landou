@@ -33,7 +33,6 @@
                 android:layout_weight="1"
                 android:background="@drawable/shape"
                 android:button="@null"
-                android:checked="true"
                 android:gravity="center"
                 android:text="配送"
                 android:textColor="#fff" />
@@ -69,22 +68,30 @@
             android:gravity="center"
             android:text="支付方式" />
 
-        <com.zykj.landous.view.SegmentedGroup
+        <RadioGroup
             android:id="@+id/SG_pay_method"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:orientation="horizontal" >
+		   <RadioButton
+                android:id="@+id/rb_online_wx"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ic_online_wx_ed"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center" />
 
             <RadioButton
                 android:id="@+id/rb_online"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
-                android:background="@drawable/ic_onlineed"
+                android:background="@drawable/ic_online"
                 android:button="@null"
-                android:checked="true"
                 android:gravity="center" />
 
             <RadioButton
@@ -95,7 +102,10 @@
                 android:background="@drawable/ic_offline"
                 android:button="@null"
                 android:gravity="center" />
-        </com.zykj.landous.view.SegmentedGroup>
+            
+             
+     
+        </RadioGroup>
     </LinearLayout>
 
     <TextView

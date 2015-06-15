@@ -104,26 +104,40 @@
             android:gravity="center"
             android:orientation="vertical" >
 
-            <ImageView
+           <!--  <ImageView
                 android:id="@+id/iv_leisurefood"
                 android:layout_width="50dp"
                 android:layout_height="68dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@drawable/icon_leisurefood" />
+                android:src="@drawable/icon_leisurefood" /> -->
+            <ImageView
+                android:id="@+id/iv_shengxianyinpin"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/shengxianyinpin" />
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="fill_parent"
                 android:layout_height="14dp" />
 
-            <ImageView
+           <!--  <ImageView
                 android:id="@+id/iv_homecleaners"
                 android:layout_width="50dp"
                 android:layout_height="68dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@drawable/icon_homecleaners" />
+                android:src="@drawable/icon_homecleaners" /> -->
+            <ImageView
+                android:id="@+id/iv_xiuxianlingshi"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/xiuxianlingshi" />
         </LinearLayout>
 
         <LinearLayout
@@ -133,25 +147,39 @@
             android:gravity="center"
             android:orientation="vertical" >
 
-            <ImageView
+           <!--  <ImageView
                 android:id="@+id/iv_personalcare"
                 android:layout_width="50dp"
                 android:layout_height="68dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@drawable/icon_personalcare" />
+                android:src="@drawable/icon_personalcare" /> -->
+            <ImageView
+                android:id="@+id/iv_yanjiulipin"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/yanjiulipin" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="14dp" />
 
-            <ImageView
+            <!-- <ImageView
                 android:id="@+id/iv_supplies"
                 android:layout_width="50dp"
                 android:layout_height="68dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@drawable/icon_supplies" />
+                android:src="@drawable/icon_supplies" /> -->
+            <ImageView
+                android:id="@+id/iv_liangyoutiaowei"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/liangyoutiaowei" />
         </LinearLayout>
 
         <LinearLayout
@@ -160,26 +188,40 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical" >
-
+<!-- 
             <ImageView
                 android:id="@+id/iv_beverages"
                 android:layout_width="50dp"
                 android:layout_height="68dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@drawable/icon_beverages" />
+                android:src="@drawable/icon_beverages" /> -->
+            <ImageView
+                android:id="@+id/iv_muyingshenghuo"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/muyingshenghuo" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="14dp" />
 
-            <ImageView
+            <!-- <ImageView
                 android:id="@+id/iv_appliance"
                 android:layout_width="50dp"
                 android:layout_height="68dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@drawable/icon_appliance" />
+                android:src="@drawable/icon_appliance" /> -->
+            <ImageView
+                android:id="@+id/iv_gehuxihua"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/gehuxihua" />
         </LinearLayout>
 
         <LinearLayout
@@ -189,25 +231,39 @@
             android:gravity="center"
             android:orientation="vertical" >
 
-            <ImageView
+            <!-- <ImageView
                 android:id="@+id/iv_condiment"
                 android:layout_width="50dp"
                 android:layout_height="68dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@drawable/icon_condiment" />
+                android:src="@drawable/icon_condiment" /> -->
+            <ImageView
+                android:id="@+id/iv_riyongtuza"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/riyongtuza" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="14dp" />
 
-            <ImageView
+           <!--  <ImageView
                 android:id="@+id/iv_officegifts"
                 android:layout_width="50dp"
                 android:layout_height="68dp"
                 android:layout_weight="1"
                 android:clickable="true"
-                android:src="@drawable/icon_officegifts" />
+                android:src="@drawable/icon_officegifts" /> -->
+            <ImageView
+                android:id="@+id/iv_jiajuwenti"
+                android:layout_width="50dp"
+                android:layout_height="68dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:src="@drawable/jiajuwenti" />
         </LinearLayout>
     </LinearLayout>
 

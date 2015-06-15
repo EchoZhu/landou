@@ -17,6 +17,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -201,6 +205,9 @@ public class E1_NO_PaymentAvtivity extends BaseActivity implements
 							map.put("store_name", json.getString("store_name"));
 							goods_amount += json.getDouble("goods_amount");
 							shipping_fee += json.getDouble("shipping_fee");
+							
+//							Log.e("shipping_fee"+j, goods_amount+"");
+							
 							JSONArray array_order_goods = json
 									.getJSONArray("order_goods");
 							{

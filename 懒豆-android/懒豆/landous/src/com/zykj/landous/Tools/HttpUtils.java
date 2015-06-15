@@ -27,7 +27,6 @@ public class HttpUtils {
 		client.setTimeout(5000); // 设置链接超时，如果不设置，默认为15s
 		client.setMaxRetriesAndTimeout(3, 5000);
 		// client.setEnableRedirects(true);
-
 	}
 
 	public static void initClient(Context c) {
