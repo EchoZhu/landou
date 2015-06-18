@@ -291,21 +291,33 @@ public class D1_OrderConfirmActivity extends BaseActivity implements
 				d_postage = 5;
 			}
 			if (pay_method != "offline") {//如果付款方式为在线支付，
-				if (all_price >= BaseData.min_total_price) {//总价大于29元，总金额=总价+邮费-折扣价格
+				if (all_price >= BaseData.min_total_price) {//总价大于49元，总金额=总价+邮费-折扣价格
 					totalprice=all_price+ d_postage - BaseData.online_pay_discount;
 //					tv_all_price.setText(MathTools.DoubleKeepTwo(totalprice)+ "");
 				} else {//总价小于29元，总金额=总价+邮费
 					totalprice=all_price + d_postage;
 //					tv_all_price.setText(MathTools.DoubleKeepTwo(totalprice) + "");
 				}
-			} else {//付款方式为当面付，总金额=总价+邮费
-				totalprice=all_price + d_postage;
+			} 
+			else //付款方式为当面付，总金额=总价+邮费-折扣价格
+			{
+				if (all_price>= BaseData.min_total_price) {
+					totalprice=all_price + d_postage- BaseData.online_pay_discount;
+				}else {
+					totalprice=all_price + d_postage;
+				}
 			}
+				
+			
 			tv_all_price.setText(MathTools.DoubleKeepTwo(totalprice) + "");
 			
 			if (pay_method == "online") {//在线支付，显示“满29元，立减5元”
 				str_postage += ",满" + BaseData.min_total_price + "元立减"
 						+ BaseData.online_pay_discount + "元";
+			}else {
+				str_postage += ",满" + BaseData.min_total_price + "元立减"
+						+ BaseData.online_pay_discount + "元";
+				
 			}
 			tv_postage.setText(str_postage);
 		}
@@ -541,7 +553,8 @@ public class D1_OrderConfirmActivity extends BaseActivity implements
 		case R.id.btn_sub://确认结算
 			// if (pay_method == "online") {
 			//
-		
+//			cart_list_data.clear();
+			
 			if (address_id != "") {
 
 				loadingPDialog.show();
@@ -636,6 +649,7 @@ public class D1_OrderConfirmActivity extends BaseActivity implements
 			}
 			if (result == 1 && statusCode == 200) {
 				try {
+					cart_list_data.clear();//616
 					JSONArray array = response.getJSONObject("data")
 							.getJSONArray("order_list");
 //					String pay_sn = "";

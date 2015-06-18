@@ -61,7 +61,10 @@ public class D0_ShopingCartFragment extends Fragment implements
 	private TextView tv_cart_buy;
 	ArrayList<String> car_List = new ArrayList<String>();
 	public static String cart_id = "";
+	
+	public static int FirstTag = 0;
 
+	
 	/**
 	 * 全选
 	 */
@@ -180,6 +183,10 @@ public class D0_ShopingCartFragment extends Fragment implements
 										+ "");
 						tv_cart_Allprice.setText("总金额:￥"
 								+ MathTools.DoubleKeepTwo(all_price_));
+						if (FirstTag==1) {
+							all_price=all_price_;
+							FirstTag=0;
+						}
 					}
 					adapter.notifyDataSetChanged();
 				} else {
@@ -315,6 +322,8 @@ public class D0_ShopingCartFragment extends Fragment implements
 					shop_car_null.setVisibility(View.GONE);
 					shop_car_data.setVisibility(View.VISIBLE);
 					adapter.notifyDataSetChanged();
+					FirstTag=1;//618
+					cb_cart_all.setChecked(true);//618 进入购物车界面之后自动全部选中
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					shop_car_null.setVisibility(View.VISIBLE);
@@ -373,6 +382,7 @@ public class D0_ShopingCartFragment extends Fragment implements
 		case R.id.rl_cart_all:
 			for (int i = 0; i < D0_New_Shoping_Car_adapter.dataList.size(); i++) {
 				D0_New_Shoping_Car_adapter.b_del[i] = true;
+				D0_New_Shoping_Car_adapter.b_goods[i] = true;//618
 			}
 			D0_ShopingCartFragment.btn_del.setText("编辑");
 			D0_ShopingCartFragment.btn_del.setTag(0);
@@ -417,14 +427,14 @@ public class D0_ShopingCartFragment extends Fragment implements
 			Intent it = new Intent(getActivity(), D1_OrderConfirmActivity.class);
 			it.putExtra("cart_id", cart_id);
 			startActivity(it);
-
 		}
 	}
-
+//list中checkBox选中的时候进行的相应操作
 	@Override
 	public void getChoiceData(double goods_price, boolean isChoice,
 			String car_id) {
 		int num = 0;
+		//及时清除数据，避免在未支付成功的情况下，造成价格的混乱
 		if (BaseData.NotSuccess==1) {
 			all_price=0;
 			BaseData.NotSuccess=0;
@@ -435,7 +445,8 @@ public class D0_ShopingCartFragment extends Fragment implements
 			}
 		}
 		if (num == D0_New_Shoping_Car_adapter.dataList.size()) {
-			cb_cart_all.setChecked(true);
+//			cb_cart_all.setChecked(true);
+			cb_cart_all.setChecked(false);//618
 		} else if (num < D0_New_Shoping_Car_adapter.dataList.size()) {
 			cb_cart_all.setChecked(false);
 		}
@@ -450,15 +461,12 @@ public class D0_ShopingCartFragment extends Fragment implements
 			car_List.remove(car_List.size() - 1);
 		}
 		for (int i = 0; i < D0_New_Shoping_Car_adapter.dataList.size(); i++) {
-			String price = D0_New_Shoping_Car_adapter.dataList.get(i)
-					.get("goods_price").toString();
-			String n = D0_New_Shoping_Car_adapter.dataList.get(i)
-					.get("goods_num").toString();
-			Log.i("landoutest", price + "price" + n + "num" + ""
-					+ D0_New_Shoping_Car_adapter.b_goods[i]);
+			String price = D0_New_Shoping_Car_adapter.dataList.get(i).get("goods_price").toString();
+			String n = D0_New_Shoping_Car_adapter.dataList.get(i).get("goods_num").toString();
+			Log.i("landoutest", price + "price" + n + "num" + ""+ D0_New_Shoping_Car_adapter.b_goods[i]);
 		}
 		tv_cart_Allprice.setText("总金额:￥" + MathTools.DoubleKeepTwo(all_price));
-		cart_id = "";
+		cart_id ="";
 		for (int i = 0; i < car_List.size(); i++) {
 			cart_id += car_List.get(i) + ",";
 		}

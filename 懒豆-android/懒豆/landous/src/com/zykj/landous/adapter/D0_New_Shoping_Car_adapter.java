@@ -167,7 +167,12 @@ public class D0_New_Shoping_Car_adapter extends BaseAdapter {
 						.get("goods_price").toString());
 				String cart_id = dataList.get(position).get("cart_id")
 						.toString();
-				b_goods[position] = !b_goods[position];
+				if (b_goods[position]==false) {
+					b_goods[position] =true;
+				}else {
+					b_goods[position] =false;
+				}
+//				b_goods[position] = !b_goods[position];
 				listener.getChoiceData(goods_price * goods_num,
 						b_goods[position], cart_id);
 				for (int i = 0; i < dataList.size(); i++) {

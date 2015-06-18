@@ -411,13 +411,14 @@ public class B2_0_PriductdetailsFragment extends Fragment implements
 					tv_productname.setText(Html.fromHtml("<div>"
 							+ json.getString("goods_name") + "" + "</div>"));
 					tv_shopname.setText(json.getString("store_name"));
-					tv_oldprice.setText("￥"
-							+ json.getString("goods_marketprice"));
+//					tv_oldprice.setText("￥"
+//							+ json.getString("goods_marketprice"));
+					tv_oldprice.setText("");
 					tv_price.setText("￥" + json.getString("goods_price"));
 					tv_goods_click.setText(json.getString("goods_click")
 							+ "人浏览");
 					tv_salenum.setText("已售：" + json.getString("goods_salenum"));
-//					min_total_price.setText("满"+BaseData.min_total_price+"元包邮");
+					min_total_price.setText("满"+BaseData.min_total_price+"元包邮");
 //					min_total_price.setText("满"+json.getString("store_free_price")+"元包邮");
 					rl_shopid.setTag(json.getString("store_id"));
 					imgArr = json.getJSONArray("images");

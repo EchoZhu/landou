@@ -13,7 +13,7 @@ public class BaseData {
 	/**
 	 * 大于29元后开始减免
 	 */
-	public static float min_total_price = 29.0f;
+	public static float min_total_price = 49.0f;
 	/**
 	 * 邮费：5元
 	 */

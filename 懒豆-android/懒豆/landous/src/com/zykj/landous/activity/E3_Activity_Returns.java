@@ -163,6 +163,9 @@ public class E3_Activity_Returns extends BaseActivity implements
 			check_1.setChecked(false);
 			refund_type = "2";
 			break;
+		case R.id.iv_back:
+			this.finish();
+			break;
 		default:
 			break;
 		}
