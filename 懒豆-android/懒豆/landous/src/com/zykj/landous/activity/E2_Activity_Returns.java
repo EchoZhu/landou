@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.BeeFramework.activity.BaseActivity;
 import com.external.activeandroid.util.Log;
@@ -90,7 +91,8 @@ public class E2_Activity_Returns extends BaseActivity implements
 				org.json.JSONObject response) {
 			super.onSuccess(statusCode, headers, response);
 			int result = 0;
-
+//			Toast.makeText(E2_Activity_Returns.this, response+"", Toast.LENGTH_LONG ).show();
+//			Log.e("TAG_RES", response+"");
 			try {
 				result = Integer.valueOf(response.getString("result"));
 			} catch (NumberFormatException e) {
@@ -118,6 +120,11 @@ public class E2_Activity_Returns extends BaseActivity implements
 						map.put("goods_num", jsonItem.getString("goods_num"));
 						map.put("rec_id", jsonItem.getString("rec_id"));
 						map.put("goods_num", jsonItem.getString("goods_num"));
+						if (jsonItem.getString("refund_return").equals("")) {
+							map.put("seller_state", "");
+						}else {
+							map.put("seller_state", jsonItem.getJSONObject("refund_return").getString("seller_state"));
+						}
 						map.put("goods_pay_price",
 								jsonItem.getString("goods_pay_price"));
 						String refund_state = jsonItem
@@ -126,6 +133,7 @@ public class E2_Activity_Returns extends BaseActivity implements
 						Log.i("refund_state", refund_state);
 						data.add(map);
 					}
+					
 					adapter.notifyDataSetChanged();
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block

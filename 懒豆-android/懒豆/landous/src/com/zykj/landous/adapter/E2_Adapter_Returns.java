@@ -86,14 +86,40 @@ public class E2_Adapter_Returns extends BaseAdapter {
 		String url = data.get(position).get("goods_image").toString();
 		ImageLoader.getInstance().displayImage(url, holder.iv_goods_image,
 				BeeFrameworkApp.options_car);
-
-		if (data.get(position).get("refund_state").equals("1")) {
-			holder.iv_returns.setVisibility(View.GONE);
-			holder.tv_isreturn.setVisibility(View.VISIBLE);
-		} else {
-			holder.iv_returns.setVisibility(View.VISIBLE);
-			holder.tv_isreturn.setVisibility(View.GONE);
+//		Log.e("123123", data+"");
+		if (data.get(position).get("seller_state").equals("")) {
+			
+			if (data.get(position).get("refund_state").equals("1")) {
+				holder.iv_returns.setVisibility(View.GONE);//退货申请
+				holder.tv_isreturn.setVisibility(View.VISIBLE);//退款中
+			} else {
+				holder.iv_returns.setVisibility(View.VISIBLE);
+				holder.tv_isreturn.setVisibility(View.GONE);
+			}
+		}else {
+			
+			if (data.get(position).get("seller_state").equals("1")) {//卖家审核中
+				holder.iv_returns.setVisibility(View.GONE);//退货申请
+				holder.tv_isreturn.setText("审核中");
+				
+			}else if (data.get(position).get("seller_state").equals("2")) //卖家不同意退款
+			{
+				holder.iv_returns.setVisibility(View.GONE);//退货申请
+				holder.tv_isreturn.setText("退款成功");
+			}
+			else if (data.get(position).get("seller_state").equals("3")) //卖家不同意退款
+			{
+				holder.iv_returns.setVisibility(View.GONE);//退货申请
+				holder.tv_isreturn.setText("退款失败");
+			}else {
+				holder.iv_returns.setVisibility(View.VISIBLE);
+				holder.tv_isreturn.setVisibility(View.GONE);
+			}
+			
 		}
+		
+		
+			
 
 		holder.tv_num.setText("x"
 				+ data.get(position).get("goods_num").toString());

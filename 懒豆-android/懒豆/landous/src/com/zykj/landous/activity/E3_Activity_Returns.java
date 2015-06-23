@@ -132,9 +132,7 @@ public class E3_Activity_Returns extends BaseActivity implements
 		et_pay_price.setText(goods_pay_price);
 		et_goos_nnum = (EditText) findViewById(R.id.et_goos_nnum);
 		et_goos_nnum.setText(goods_num);
-		;
 		et_extend_msg = (EditText) findViewById(R.id.et_extend_msg);
-
 	}
 
 	@Override
@@ -148,10 +146,8 @@ public class E3_Activity_Returns extends BaseActivity implements
 						Toast.LENGTH_LONG).show();
 			} else {
 				loadingPDialog.show();
-				HttpUtils.refund(res, order_id, rec_id, refund_type,
-						refund_amount, goods_num, extend_msg);
+				HttpUtils.refund(res, order_id, rec_id, refund_type,refund_amount, goods_num, extend_msg);
 			}
-
 			break;
 		case R.id.ll_check_1:
 			check_1.setChecked(true);
@@ -190,7 +186,8 @@ public class E3_Activity_Returns extends BaseActivity implements
 			if (result == 1 && statusCode == 200) {
 				AlertDialog.Builder builder = new Builder(
 						E3_Activity_Returns.this);
-				builder.setMessage("退款提交成功");
+//				builder.setMessage("退款提交成功");
+				builder.setMessage("您的退款申请已提交，懒豆将在1个工作日内进行审核");
 
 				builder.setTitle("提示");
 
@@ -200,7 +197,9 @@ public class E3_Activity_Returns extends BaseActivity implements
 							public void onClick(DialogInterface dialog,
 									int which) {
 								dialog.dismiss();
-								finish();
+//								finish();
+								Intent intent1=new Intent(E3_Activity_Returns.this,E1_EceiptActivity.class);
+								startActivity(intent1);
 								overridePendingTransition(R.anim.push_left_in,
 										R.anim.push_left_out);
 							}
